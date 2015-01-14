@@ -2,14 +2,14 @@
 #   hubot anonymous post
 #
 # Commands:
-#   hubot anon MESSAGE
-#   hubot anon #general MESSAGE
+#   hubot anon <MESSAGE>
+#   hubot anon #room_name <MESSAGE>
 #
 # Author:
 #   @shokai
 
 config =
-  to: 'general'
+  to: process.env.HUBOT_ANON_TO or 'general'
 
 module.exports = (robot) ->
 
@@ -22,13 +22,12 @@ module.exports = (robot) ->
       to = config.to
     text = args.join(' ')
     robot.send {room: to}, text
-    msg.send "@#{from} #{to} にこっそり「#{text}」って言っておきました"
+    msg.send "@#{from} send \"#{text}\" to #{to}"
     return
 
   robot.respond /anon$/i, (msg) ->
     msg.send """
-    hubot anon MESSAGE
-    hubot anon [to] MESSAGE
-    hubot anon #general MESSAGE
+    hubot anon <MESSAGE>
+    hubot anon #room_name <MESSAGE>
     """
     return
