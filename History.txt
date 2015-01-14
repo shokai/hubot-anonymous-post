@@ -1,3 +1,8 @@
+=== 0.0.3 2015-01-15
+
+* run test on Travis-CI
+* add Travis-CI status badge
+
 === 0.0.2 2015-01-14
 
 * update README

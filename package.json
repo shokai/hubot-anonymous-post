@@ -1,6 +1,6 @@
 {
   "name": "hubot-anonymous-post",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "hubot anonymous post",
   "main": "scripts/anonymous-post.coffee",
   "scripts": {
