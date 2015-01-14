@@ -2,6 +2,8 @@ Hubot Anonymous Post
 ====================
 post as hubot
 
+[![Build Status](https://travis-ci.org/shokai/hubot-anonymous-post.svg?branch=master)](https://travis-ci.org/shokai/hubot-anonymous-post)
+
 - https://github.com/shokai/hubot-anonymous-post
 - https://www.npmjs.org/package/hubot-anonymous-post
 
