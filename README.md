@@ -23,6 +23,10 @@ Install
 
     export HUBOT_ANON_TO=general  # default room
 
+    # on heroku
+    heroku config:set HUBOT_ANON_TO=general
+
+
 Usage
 -----
 
