@@ -16,13 +16,15 @@ module.exports = (robot) ->
   robot.respond /anon (.+)$/i, (msg) ->
     from = msg.message.user.name
     args = msg.match[1].trim().split(/\s+/)
-    if /[#@][a-zA-Z0-9_\-]+/.test args[0]
-      to = args.shift().replace(/^[#@]/,'')
+    to = args[0]
+    channel = robot.adapter.client.rtm.dataStore.getChannelByName(to)
+    if typeof channel is 'undefined'
+      channel = robot.adapter.client.rtm.dataStore.getChannelByName(config.to)
     else
-      to = config.to
+      args.shift()
     text = args.join(' ')
-    robot.send {room: to}, text
-    msg.send "@#{from} send \"#{text}\" to #{to}"
+    robot.messageRoom channel.id, text
+    msg.send "@#{from} send \"#{text}\" to #{channel.name}"
     return
 
   robot.respond /anon$/i, (msg) ->
